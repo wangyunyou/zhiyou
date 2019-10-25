@@ -1,5 +1,9 @@
 <template>
-  <div class="home">欢迎来到后台管理系统</div>
+  <div class="container">
+    <div class="line"></div>
+    <div class="title">欢迎使用智友小站后台管理系统</div>
+    <div class="line"></div>
+  </div>
 </template>
 
 <script>
@@ -11,3 +15,26 @@ export default {
   components: {}
 };
 </script>
+
+
+<style scope>
+.container {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 300px;
+}
+
+.title {
+  margin: 0 20px;
+}
+
+.line {
+  height: 1px;
+  background: #999;
+  flex: 1;
+}
+</style>
+  

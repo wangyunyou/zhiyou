@@ -4,25 +4,14 @@
       <div class="top">
         <div class="logo">智友小站后台管理系统</div>
         <el-menu
-          :default-active="activeIndex2"
           class="el-menu-demo"
           mode="horizontal"
-          @select="handleSelect"
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
         >
-          <el-menu-item index="1">处理中心</el-menu-item>
-          <el-submenu index="2">
-            <template slot="title">我的工作台</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-3">选项3</el-menu-item>
-          </el-submenu>
-          <el-menu-item index="3">消息中心</el-menu-item>
-          <el-menu-item index="4">
-            <a href="http://gisea.cn" target="_blank">金智海官网</a>
-          </el-menu-item>
+          <el-menu-item index="1">修改密码</el-menu-item>
+          <el-menu-item index="2">退出</el-menu-item>
         </el-menu>
       </div>
     </el-header>
@@ -33,8 +22,6 @@
             <el-menu
               default-active="1"
               class="el-menu-vertical-demo"
-              @open="handleOpen"
-              @close="handleClose"
               background-color="#34373b"
               text-color="#fff"
               active-text-color="yellow"
@@ -91,11 +78,11 @@
           </el-col>
         </el-row>
       </el-aside>
-      <el-container>
+      <el-container class="main-container">
         <el-main>
           <router-view />
         </el-main>
-        <el-footer>金智海智能科技有限公司 ©</el-footer>
+        <el-footer>南京金智海智能科技有限公司 ©</el-footer>
       </el-container>
     </el-container>
   </el-container>
@@ -105,21 +92,10 @@ export default {
   name: "app",
   data() {
     return {
-      activeIndex: "1",
-      activeIndex2: "1"
+      activeIndex: "1"
     };
   },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    }
-  }
+  methods: {}
 };
 </script>
 
@@ -205,5 +181,10 @@ body {
 .main {
   text-align: center;
   margin-top: 100px;
+}
+
+.main-container {
+  height: calc(100vh - 60px);
+  overflow: auto;
 }
 </style>
