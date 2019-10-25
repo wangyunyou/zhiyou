@@ -1,10 +1,10 @@
 <template>
-  <div>商品标准维护</div>
+  <div>商品类型</div>
 </template>
 
 <script>
 export default {
-  name: "goodsStandard",
+  name: "goodsStyle",
   components: {}
 };
 </script>

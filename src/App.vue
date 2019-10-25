@@ -18,12 +18,6 @@
             <el-menu-item index="2-1">选项1</el-menu-item>
             <el-menu-item index="2-2">选项2</el-menu-item>
             <el-menu-item index="2-3">选项3</el-menu-item>
-            <el-submenu index="2-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="2-4-1">选项1</el-menu-item>
-              <el-menu-item index="2-4-2">选项2</el-menu-item>
-              <el-menu-item index="2-4-3">选项3</el-menu-item>
-            </el-submenu>
           </el-submenu>
           <el-menu-item index="3">消息中心</el-menu-item>
           <el-menu-item index="4">
@@ -51,38 +45,48 @@
                 <i class="el-icon-s-home"></i>
                 <span slot="title">首页</span>
               </el-menu-item>
-              <el-menu-item index="2" route="/goodsStandard">
+
+              <el-menu-item index="2" route="/user">
                 <i class="el-icon-menu"></i>
-                <span slot="title">商品标准维护</span>
+                <span slot="title">用户管理</span>
               </el-menu-item>
-              <el-menu-item index="3" route="/goodsCenter">
-                <i class="el-icon-menu"></i>
-                <span slot="title">理货中心销售商品维护</span>
-              </el-menu-item>
+
+              <el-submenu index="3">
+                <template slot="title">
+                  <i class="el-icon-location"></i>
+                  <span>商品管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="3-1" route="/goodsStyle">商品类型</el-menu-item>
+                  <el-menu-item index="3-2" route="/goodsSpecifications">商品规格</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
+
               <el-menu-item index="4" route="/order">
                 <i class="el-icon-menu"></i>
-                <span slot="title">订单监控</span>
+                <span slot="title">订单管理</span>
               </el-menu-item>
+
               <el-submenu index="5">
                 <template slot="title">
                   <i class="el-icon-location"></i>
-                  <span>人员维护</span>
+                  <span>货栈管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="5-1" route="/user">角色管理</el-menu-item>
-                  <el-menu-item index="5-2" route="/blackList">禁用名单</el-menu-item>
+                  <el-menu-item index="5-1" route="/center">货栈维护</el-menu-item>
+                  <el-menu-item index="5-2" route="/goodsCenter">销售商品维护</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
-              <el-submenu index="6">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>基础资源维护</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="6-1" route="/community">社区维护</el-menu-item>
-                  <el-menu-item index="6-2" route="/center">理货中心维护</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
+
+              <el-menu-item index="6" route="/community">
+                <i class="el-icon-menu"></i>
+                <span slot="title">小区管理</span>
+              </el-menu-item>
+
+              <el-menu-item index="7" route="/equipment">
+                <i class="el-icon-menu"></i>
+                <span slot="title">设备管理</span>
+              </el-menu-item>
             </el-menu>
           </el-col>
         </el-row>

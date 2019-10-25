@@ -1,10 +1,10 @@
 <template>
-  <div>禁用名单</div>
+  <div>设备管理</div>
 </template>
 
 <script>
 export default {
-  name: "blackList",
+  name: "equipment",
   components: {}
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div>社区维护</div>
+  <div>小区管理</div>
 </template>
 
 <script>

@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import GoodsStandard from './views/GoodsStandard.vue'
 import GoodsCenter from './views/GoodsCenter.vue'
 import Order from './views/Order.vue'
 import User from './views/User.vue'
-import BlackList from './views/BlackList.vue'
 import Community from './views/Community.vue'
+import Equipment from './views/Equipment.vue'
 import Center from './views/Center.vue'
+import GoodsSpecifications from './views/GoodsSpecifications.vue'
+import GoodsStyle from './views/GoodsStyle.vue'
 
 Vue.use(Router)
 
@@ -20,14 +21,24 @@ export default new Router({
       component: Home
     },
     {
-      path: '/goodsStandard',
-      name: 'goodsStandard',
-      component: GoodsStandard
-    },
-    {
       path: '/goodsCenter',
       name: 'goodsCenter',
       component: GoodsCenter
+    },
+    {
+      path: '/equipment',
+      name: 'equipment',
+      component: Equipment
+    },
+    {
+      path: '/goodsSpecifications',
+      name: 'goodsSpecifications',
+      component: GoodsSpecifications
+    },
+    {
+      path: '/goodsStyle',
+      name: 'goodsStyle',
+      component: GoodsStyle
     },
     {
       path: '/order',
@@ -38,11 +49,6 @@ export default new Router({
       path: '/user',
       name: 'user',
       component: User
-    },
-    {
-      path: '/blackList',
-      name: 'blackList',
-      component: BlackList
     },
     {
       path: '/community',

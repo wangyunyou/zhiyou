@@ -1,5 +1,5 @@
 <template>
-  <div>理货中心维护</div>
+  <div>货栈维护</div>
 </template>
 
 <script>
