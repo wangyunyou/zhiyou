@@ -20,7 +20,7 @@
         <el-row class="tac">
           <el-col :span="24">
             <el-menu
-              default-active="1"
+              :default-active="$route.path"
               class="el-menu-vertical-demo"
               background-color="#34373b"
               text-color="#fff"
@@ -28,12 +28,12 @@
               router
               style="text-align:left"
             >
-              <el-menu-item index="1" route="/">
+              <el-menu-item index="/">
                 <i class="el-icon-s-home"></i>
                 <span slot="title">首页</span>
               </el-menu-item>
 
-              <el-menu-item index="2" route="/user">
+              <el-menu-item index="/user">
                 <i class="el-icon-menu"></i>
                 <span slot="title">用户管理</span>
               </el-menu-item>
@@ -44,12 +44,12 @@
                   <span>商品管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="3-1" route="/goodsStyle">商品类型</el-menu-item>
-                  <el-menu-item index="3-2" route="/goodsSpecifications">商品规格</el-menu-item>
+                  <el-menu-item index="/goodsStyle">商品类型</el-menu-item>
+                  <el-menu-item index="/goodsSpecifications">商品规格</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
 
-              <el-menu-item index="4" route="/order">
+              <el-menu-item index="/order">
                 <i class="el-icon-menu"></i>
                 <span slot="title">订单管理</span>
               </el-menu-item>
@@ -60,17 +60,17 @@
                   <span>货栈管理</span>
                 </template>
                 <el-menu-item-group>
-                  <el-menu-item index="5-1" route="/center">货栈维护</el-menu-item>
-                  <el-menu-item index="5-2" route="/goodsCenter">销售商品维护</el-menu-item>
+                  <el-menu-item index="/center">货栈维护</el-menu-item>
+                  <el-menu-item index="/goodsCenter">销售商品维护</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
 
-              <el-menu-item index="6" route="/community">
+              <el-menu-item index="/community">
                 <i class="el-icon-menu"></i>
                 <span slot="title">小区管理</span>
               </el-menu-item>
 
-              <el-menu-item index="7" route="/equipment">
+              <el-menu-item index="/equipment">
                 <i class="el-icon-menu"></i>
                 <span slot="title">设备管理</span>
               </el-menu-item>
