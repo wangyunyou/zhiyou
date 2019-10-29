@@ -11,9 +11,16 @@
         <el-button type="danger">清空</el-button>
       </div>
     </div>
-    <el-table :data="tableData" style="width: 100%;height:650px" max-height="650">
-      <el-table-column prop="id" label="序号" width="100"></el-table-column>
-      <el-table-column prop="img" label="图片">
+    <el-table
+      :data="tableData"
+      style="width: 100%;height:650px"
+      max-height="650"
+      header-align="center"
+      :cell-style="cellStyle"
+      :header-cell-style="cellStyle"
+    >
+      <el-table-column prop="id" label="序号" width="100" align="center"></el-table-column>
+      <el-table-column prop="img" label="图片" align="center">
         <template slot-scope="scope">
           <img :src="scope.row.img" width="100" height="70" />
         </template>
@@ -31,7 +38,7 @@
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page="currentPage4"
+        :current-page="currentPage"
         :page-sizes="[10, 20, 30]"
         :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
@@ -41,17 +48,22 @@
 
     <el-dialog title="编辑信息" :visible.sync="dialogFormVisible">
       <el-form :model="form">
-        <el-upload
-          class="avatar-uploader"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :show-file-list="false"
-          :on-success="handleAvatarSuccess"
-          :before-upload="beforeAvatarUpload"
-        >
-          <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-        </el-upload>
-        <el-form-item label="姓名" :label-width="formLabelWidth">
+        <div class="uploadImg">
+          <el-upload
+            class="avatar-uploader"
+            action="#"
+            :show-file-list="false"
+            :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload"
+          >
+            <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+          <!-- <el-dialog :visible.sync="dialogVisible">
+            <img width="100%" :src="dialogImageUrl" alt />
+          </el-dialog>-->
+        </div>
+        <el-form-item label="商品名称" :label-width="formLabelWidth">
           <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
@@ -62,8 +74,6 @@
     </el-dialog>
   </div>
 </template>
-
-
 
 <script>
 export default {
@@ -121,7 +131,7 @@ export default {
         desc: ""
       },
       formLabelWidth: "120px",
-      currentPage4: 1,
+      currentPage: 1,
       imageUrl: ""
     };
   },
@@ -152,13 +162,17 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     },
+    // handlePictureCardPreview(file) {
+    //   this.dialogImageUrl = file.url;
+    //   this.dialogVisible = true;
+    // },
+
     handleAvatarSuccess(res, file) {
-      this.imageUrl = URL.createObjectURL(file.raw);
+      // this.imageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
       const isJPG = file.type === "image/jpeg";
       const isLt2M = file.size / 1024 / 1024 < 2;
-
       if (!isJPG) {
         this.$message.error("上传头像图片只能是 JPG 格式!");
       }
@@ -166,6 +180,10 @@ export default {
         this.$message.error("上传头像图片大小不能超过 2MB!");
       }
       return isJPG && isLt2M;
+    },
+
+    cellStyle() {
+      return "text-align:center";
     }
   }
 };
@@ -201,7 +219,7 @@ export default {
   background-color: #fff;
 }
 .avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
+  border: 1px dashed #d9d9d9 !important;
   border-radius: 6px;
   cursor: pointer;
   position: relative;
@@ -223,4 +241,11 @@ export default {
   height: 178px;
   display: block;
 }
+/* 
+.uploadImg {
+  width: 100%;
+  height: 200px;
+  border: 1px solid red;
+  margin-bottom: 20px;
+} */
 </style>

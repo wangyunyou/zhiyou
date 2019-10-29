@@ -11,7 +11,13 @@
         <el-button type="danger">清空</el-button>
       </div>
     </div>
-    <el-table :data="tableData" style="width: 100%;height:650px" max-height="650">
+    <el-table
+      :data="tableData"
+      style="width: 100%;height:650px"
+      max-height="650"
+      :cell-style="cellStyle"
+      :header-cell-style="cellStyle"
+    >
       <!-- <el-table-column label="日期" width="280">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
@@ -257,10 +263,14 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    cellStyle() {
+      return "text-align:center";
     }
   }
 };
 </script>
+
 <style scoped>
 .topBar {
   width: 100%;

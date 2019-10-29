@@ -11,7 +11,13 @@
         <el-button type="danger">清空</el-button>
       </div>
     </div>
-    <el-table :data="tableData" style="width: 100%;height:650px" max-height="650">
+    <el-table
+      :data="tableData"
+      style="width: 100%;height:650px"
+      max-height="650"
+      :cell-style="cellStyle"
+      :header-cell-style="cellStyle"
+    >
       <el-table-column prop="id" label="序号" width="100"></el-table-column>
       <el-table-column prop="weight" label="重量"></el-table-column>
       <el-table-column prop="unit" label="单位"></el-table-column>
@@ -152,6 +158,9 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    cellStyle() {
+      return "text-align:center";
     }
   }
 };

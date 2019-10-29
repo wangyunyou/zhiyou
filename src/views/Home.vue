@@ -16,7 +16,6 @@ export default {
 };
 </script>
 
-
 <style scope>
 .container {
   font-size: 30px;
