@@ -34,13 +34,13 @@
               </el-menu-item>
 
               <el-menu-item index="/user">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-user-solid"></i>
                 <span slot="title">用户管理</span>
               </el-menu-item>
 
               <el-submenu index="3">
                 <template slot="title">
-                  <i class="el-icon-location"></i>
+                  <i class="el-icon-s-goods"></i>
                   <span>商品管理</span>
                 </template>
                 <el-menu-item-group>
@@ -50,13 +50,13 @@
               </el-submenu>
 
               <el-menu-item index="/order">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-s-order"></i>
                 <span slot="title">订单管理</span>
               </el-menu-item>
 
               <el-submenu index="5">
                 <template slot="title">
-                  <i class="el-icon-location"></i>
+                  <i class="el-icon-s-grid"></i>
                   <span>货栈管理</span>
                 </template>
                 <el-menu-item-group>
@@ -66,12 +66,12 @@
               </el-submenu>
 
               <el-menu-item index="/community">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-s-shop"></i>
                 <span slot="title">小区管理</span>
               </el-menu-item>
 
               <el-menu-item index="/equipment">
-                <i class="el-icon-menu"></i>
+                <i class="el-icon-s-flag"></i>
                 <span slot="title">设备管理</span>
               </el-menu-item>
             </el-menu>
@@ -91,9 +91,7 @@
 export default {
   name: "app",
   data() {
-    return {
-      activeIndex: "2"
-    };
+    return {};
   },
   methods: {}
 };
