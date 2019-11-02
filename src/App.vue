@@ -24,7 +24,7 @@
               class="el-menu-vertical-demo"
               background-color="#34373b"
               text-color="#fff"
-              active-text-color="yellow"
+              active-text-color="#FFFF00"
               router
               style="text-align:left"
             >

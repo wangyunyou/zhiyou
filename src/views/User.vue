@@ -46,7 +46,7 @@
 
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="mini" @click="dialogFormVisible = true">编辑</el-button>
+          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
           <el-button size="mini" type="danger" @click="handleDelete(scope.$index, tableData)">删除</el-button>
         </template>
       </el-table-column>
@@ -107,120 +107,7 @@ export default {
   data() {
     return {
       input: "",
-      tableData: [
-        {
-          id: 1,
-          name: "王一虎",
-          tel: 13188888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 2,
-          name: "王二虎",
-          tel: 13288888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 3,
-          name: "王三虎",
-          tel: 13388888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 4,
-          name: "王四虎",
-          tel: 13488888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 5,
-          name: "王五虎",
-          tel: 13588888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 6,
-          name: "王六虎",
-          tel: 13688888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 7,
-          name: "王七虎",
-          tel: 13788888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 8,
-          name: "王八虎",
-          tel: 13888888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 9,
-          name: "王九虎",
-          tel: 13988888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 10,
-          name: "王十虎",
-          tel: 13088888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 11,
-          name: "王十一虎",
-          tel: 13088888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 12,
-          name: "王十二虎",
-          tel: 13088888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 13,
-          name: "王十三虎",
-          tel: 13088888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        },
-        {
-          id: 14,
-          name: "王十四虎",
-          tel: 13088888888,
-          role: "理货员",
-          workPlace: "理货中心A",
-          state: "正常"
-        }
-      ],
+      tableData: [],
       dialogTableVisible: false,
       dialogFormVisible: false,
       form: {
@@ -237,7 +124,16 @@ export default {
       currentPage4: 1
     };
   },
+  mounted() {
+    this.run();
+  },
   methods: {
+    handleEdit(index, row) {
+      this.dialogFormVisible = true;
+      console.log(index, row);
+      this.form.name = row.name;
+      this.form.tel = row.tel;
+    },
     handleDelete(index, row) {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -266,6 +162,21 @@ export default {
     },
     cellStyle() {
       return "text-align:center";
+    },
+    run() {
+      let that = this;
+      const axios = require("axios");
+      axios
+        .get(
+          "http://rest.apizza.net/mock/480fbdd9fc2eaff20db72dd45597fbc2/test-wyy.json"
+        )
+        .then(function(e) {
+          // console.log(e.data.data);
+          that.tableData = e.data.data;
+        })
+        .catch(function(res) {
+          // console.log(res);
+        });
     }
   }
 };
