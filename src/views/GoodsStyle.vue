@@ -76,48 +76,12 @@
 </template>
 
 <script>
+import Axios from "axios";
 export default {
   data() {
     return {
       input: "",
-      tableData: [
-        {
-          id: 1,
-          img:
-            "http://img5.imgtn.bdimg.com/it/u=2815812707,466418046&fm=26&gp=0.jpg",
-          name: "青桔"
-        },
-        {
-          id: 2,
-          img:
-            "http://img5.imgtn.bdimg.com/it/u=2524466911,3868506368&fm=26&gp=0.jpg",
-          name: "蓝莓"
-        },
-        {
-          id: 3,
-          img:
-            "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3546881446,2869360182&fm=26&gp=0.jpg",
-          name: "山竹"
-        },
-        {
-          id: 4,
-          img:
-            "http://img3.imgtn.bdimg.com/it/u=3590582356,2618273529&fm=26&gp=0.jpg",
-          name: "西红柿"
-        },
-        {
-          id: 5,
-          img:
-            "http://img5.imgtn.bdimg.com/it/u=2866127480,1170172053&fm=26&gp=0.jpg",
-          name: "西瓜"
-        },
-        {
-          id: 6,
-          img:
-            "http://img0.imgtn.bdimg.com/it/u=3815820151,1009732317&fm=26&gp=0.jpg",
-          name: "牛油果"
-        }
-      ],
+      tableData: [],
       dialogTableVisible: false,
       dialogFormVisible: false,
       form: {
@@ -134,6 +98,10 @@ export default {
       currentPage: 1,
       imageUrl: ""
     };
+  },
+
+  mounted() {
+    this.run();
   },
   methods: {
     handleDelete(index, row) {
@@ -184,6 +152,21 @@ export default {
 
     cellStyle() {
       return "text-align:center";
+    },
+    run() {
+      let that = this;
+      const axios = require("axios");
+      axios
+        .get(
+          "http://rest.apizza.net/mock/480fbdd9fc2eaff20db72dd45597fbc2/test-wyy.json"
+        )
+        .then(function(e) {
+          console.log(e.data.data);
+          that.tableData = e.data.data;
+        })
+        .catch(function(res) {
+          // console.log(res);
+        });
     }
   }
 };

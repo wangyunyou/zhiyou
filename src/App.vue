@@ -8,13 +8,32 @@
           mode="horizontal"
           background-color="#545c64"
           text-color="#fff"
-          active-text-color="#ffd04b"
+          active-text-color="#fff"
         >
-          <el-menu-item index="1">修改密码</el-menu-item>
-          <el-menu-item index="2">退出</el-menu-item>
+          <el-menu-item @click="changePwd = true">修改密码</el-menu-item>
+          <el-menu-item>退出</el-menu-item>
         </el-menu>
       </div>
     </el-header>
+
+    <el-dialog title="修改密码" :visible.sync="changePwd" width="30%">
+      <el-form ref="form" :model="form" label-width="100px">
+        <el-form-item label="请输入原密码">
+          <el-input type="password" v-model="form.oldPwd"></el-input>
+        </el-form-item>
+        <el-form-item label="请输入新密码">
+          <el-input type="password" v-model="form.newPwd"></el-input>
+        </el-form-item>
+        <el-form-item label="请确认新密码">
+          <el-input type="password" v-model="form.confirmPwd"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="changePwd = false">取 消</el-button>
+        <el-button type="primary" @click="changePwd = false">确 定</el-button>
+      </span>
+    </el-dialog>
+
     <el-container>
       <el-aside width="200px">
         <el-row class="tac">
@@ -91,9 +110,20 @@
 export default {
   name: "app",
   data() {
-    return {};
+    return {
+      changePwd: false,
+      form: {
+        oldPwd: "",
+        newPwd: "",
+        confirmPwd: ""
+      }
+    };
   },
-  methods: {}
+  methods: {
+    onSubmit() {
+      console.log("submit!");
+    }
+  }
 };
 </script>
 
