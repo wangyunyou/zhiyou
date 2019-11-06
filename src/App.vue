@@ -11,7 +11,7 @@
           active-text-color="#fff"
         >
           <el-menu-item @click="changePwd = true">修改密码</el-menu-item>
-          <el-menu-item>退出</el-menu-item>
+          <el-menu-item @click="logOut">退出</el-menu-item>
         </el-menu>
       </div>
     </el-header>
@@ -33,7 +33,7 @@
         <el-button type="primary" @click="changePwd = false">确 定</el-button>
       </span>
     </el-dialog>
-
+ 
     <el-container>
       <el-aside width="200px">
         <el-row class="tac">
@@ -122,6 +122,12 @@ export default {
   methods: {
     onSubmit() {
       console.log("submit!");
+    },
+    logOut() {
+      this.$message({
+        message: "您已退出，请重新登录",
+        type: "warning"
+      });
     }
   }
 };
