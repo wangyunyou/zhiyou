@@ -2,7 +2,7 @@
   <el-container>
     <el-header>
       <div class="top">
-        <div class="logo">智友小站后台管理系统</div>
+        <div class="logo">金智海后台管理系统</div>
         <el-menu
           class="el-menu-demo"
           mode="horizontal"
@@ -33,7 +33,7 @@
         <el-button type="primary" @click="changePwd = false">确 定</el-button>
       </span>
     </el-dialog>
- 
+
     <el-container>
       <el-aside width="200px">
         <el-row class="tac">
@@ -64,7 +64,9 @@
                 </template>
                 <el-menu-item-group>
                   <el-menu-item index="/goodsStyle">商品类型</el-menu-item>
-                  <el-menu-item index="/goodsSpecifications">商品规格</el-menu-item>
+                  <el-menu-item index="/goodsSpecifications"
+                    >商品规格</el-menu-item
+                  >
                 </el-menu-item-group>
               </el-submenu>
 

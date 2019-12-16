@@ -6,7 +6,11 @@
         <i class="el-icon-circle-plus-outline"></i>
       </el-button>
       <div class="inputBox">
-        <el-input v-model="input" placeholder="请输入内容" style="margin-right:10px"></el-input>
+        <el-input
+          v-model="input"
+          placeholder="请输入内容"
+          style="margin-right:10px"
+        ></el-input>
         <el-button type="success">查询</el-button>
         <el-button type="danger">清空</el-button>
       </div>
@@ -46,8 +50,15 @@
 
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <el-button size="mini" type="danger" @click="handleDelete(scope.$index, tableData)">删除</el-button>
+          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
+            >编辑</el-button
+          >
+          <el-button
+            size="mini"
+            type="danger"
+            @click="handleDelete(scope.$index, tableData)"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -89,12 +100,18 @@
           </el-select>
         </el-form-item>
         <el-form-item label="登录密码" :label-width="formLabelWidth">
-          <el-input v-model="form.pwd" autocomplete="off" show-password></el-input>
+          <el-input
+            v-model="form.pwd"
+            autocomplete="off"
+            show-password
+          ></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">保 存</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false"
+          >保 存</el-button
+        >
       </div>
     </el-dialog>
   </div>
